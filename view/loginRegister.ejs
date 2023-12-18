@@ -1,0 +1,58 @@
+<title>Login | Sign Up</title>
+<link rel="stylesheet" href="/css/register.css">
+    <script src="/js/register.js" defer></script>
+
+    <div class="logsin">
+        <h3> Sign Up </h3>
+        <h3> Sign In </h3>
+    </div>
+
+    <div class="form1">
+
+        <form action="/create/user" method="post">
+
+            <div class="div">
+                <input type="text" name="name" id="name" required>
+                <label for="name"> Name: </label>
+            </div>
+            <div hidden class="hid">Plese Enter Correct Name</div>
+            <div class="div">
+                <input type="text" name="email" id="email" required>
+                <label for="email"> Email: </label>
+            </div>
+            <div hidden class="hid">Plese Enter Correct Email </div>
+            <div class="div">
+                <input type="password" name="password" id="password" required>
+                <label for="password"> Password: </label>
+            </div>
+            <div class="div">
+                <input type="password" name="cnfpassword" id="cnfpassword" required>
+                <label for="cnfpassword">Confirm Password: </label>
+            </div>
+            <div class="div">
+                <input class="submit" type="submit" value="Register" >
+            </div>
+        </form>
+
+    </div>
+
+    <div class="form2">
+
+        <form action="/login/home" method="post">
+            <div class="div">
+                <input type="text" name="email" id="emaill" required>
+                <label for="emaill"> Email: </label>
+            </div>
+            <div hidden class="hid">Plese Enter Correct Email</div>
+
+            <div class="div">
+                <input type="password" name="password" id="passwordl" required>
+                <label for="passwordl"> Password: </label>
+            </div>
+
+            <div class="div">
+                <input class="submit" type="submit" value="Login">
+            </div>
+        </form>
+
+    </div>

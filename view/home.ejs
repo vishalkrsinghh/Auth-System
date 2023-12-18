@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/css/home.css">
+
+<div class="flx">
+    <span> <a href="/logout">Logout</a> </span>
+    <span><a href="/password/reset">Reset Password</a></span>
+</div>
+
+<div>
+    <strong> <% if(name){ %>
+         Welcome! <%= name%> 
+        
+        <%}else{%>
+            Hii User.
+        <%}%>
+        </strong>
+    <p>  
+    
+        <% if(email){ %>
+            Your email is <%= email%>  
+           <%}%>
+    </p>
+</div>

@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.logsin {
+    display: flex;
+    gap: 20px;
+}
+.form2 {
+    display: none;
+}
+.logsin :first-child {
+    border-bottom: 3px solid blue;
+}
+h3 {
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+.hid{
+    color: red;
+    font-size: 12px;
+}
+.shake {
+    animation-name: shake;
+    animation-duration: 100ms;
+    animation-iteration-count: 3;
+}
+
+@keyframes shake {
+    from {
+        transform: translateX(3px);
+    }
+
+    to {
+        transform: translateX(-3px);
+    }
+}
+@media only screen and (max-width:340px) {
+    body {
+        font-size: 12px;
+    }
+}

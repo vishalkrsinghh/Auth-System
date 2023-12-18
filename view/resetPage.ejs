@@ -1,0 +1,21 @@
+
+
+
+<h2>Password Reset Form</h2>
+<div class="fo">
+<form action="/password/newpassword" method="post">
+    <div class="div">
+        <input type="password" name="newpassword" id="password" required>
+        <label for="emaill"> New Password: </label>
+    </div>
+
+    <div class="div">
+        <input type="password" name="cnfnewpassword" id="cnfpassword" required>
+        <label for="passwordl"> Confirm New Password: </label>
+    </div>
+        <input type="text" hidden name="submit" value="<%=id%>">
+    <div class="div">
+        <input class="submit" type="submit" value="Submit">
+    </div>
+</form>
+</div>
