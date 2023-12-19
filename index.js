@@ -9,6 +9,8 @@ import { fileURLToPath } from 'url';
 import path from "path";
 import {dirname} from "path";
 import expressLayouts  from "express-ejs-layouts"
+import flash from 'connect-flash';
+import session from "express-session"
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -25,6 +27,18 @@ app.set("layout extractScripts", true);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname,"view"));
 app.use(express.static(path.join(__dirname,"assets")));
+
+app.use(session({ cookie: { maxAge: 100*60*1000 }, 
+    secret: 'woot',
+    resave: false, 
+    saveUninitialized: false
+    }));
+app.use(flash());
+app.use(function(req, res, next) {
+    // before every route, attach the flash messages to res.locals
+    res.locals.flash = {"success":req.flash("success"),"error":req.flash("error")};
+    next();
+  });
 
 app.use("/", router);
 

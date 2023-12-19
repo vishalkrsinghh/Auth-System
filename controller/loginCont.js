@@ -19,7 +19,9 @@ export default async function (req, res) {
 
                 let token = jwt.sign({_id:user._id}, process.env.JWT_SECRET_KEY, { expiresIn: "60m" })
                 res.cookie('token', token, { maxAge: 60 * 60 * 1000, httpOnly: true }); 
-                res.render("home",{name:user.name,email:user.email});
+                req.flash('success', 'Loged in success!')
+                // res.render("home",{name:user.name,email:user.email});
+                res.redirect("/");
             }else{
                 res.status(400).json({
                     Error: "Email or Password are incorrect.",
@@ -36,6 +38,7 @@ export default async function (req, res) {
         // console.log(req.cookies);
 
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             Error: "Error in login, Error in Code, Server Side Error .",
             data: { error }

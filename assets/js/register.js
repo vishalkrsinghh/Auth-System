@@ -5,7 +5,7 @@ let form2= document.getElementsByClassName("form2")[0];
 let input= document.getElementsByTagName("input");
 let hide= document.getElementsByClassName("hid");
 let submit= document.getElementsByClassName("submit");
-console.log(hide.length);
+// console.log(hide.length);
 for(let i=0; i<input.length; i++){
     input[i].onkeydown=()=>{
         let val;
