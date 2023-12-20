@@ -14,13 +14,13 @@ export default async function(req,res){
         await userCollectionSchema.create({name:tokenDetail.name,email:tokenDetail.email,password:tokenDetail.paswd})
 
         req.flash('success', 'Email verified Successfully!')
-        res.redirect("https://authsystem-h113.onrender.com/")
-        // res.send(`Email verified Successfully, Go To <a href="https://authsystem-h113.onrender.com/">LINK</a>  for Login. `);
+        res.redirect("https://authsystem-dcod.onrender.com/")
+        // res.send(`Email verified Successfully, Go To <a href="https://authsystem-dcod.onrender.com/">LINK</a>  for Login. `);
 
     }else{
     
         req.flash('error', 'Invalid URL/Link.')
-        res.redirect("https://authsystem-h113.onrender.com/")
+        res.redirect("https://authsystem-dcod.onrender.com/")
         // res.status(200).json({
         //     message:"Invalid URL/Link."
         // })

@@ -33,7 +33,7 @@ export default async function (req, res) {
                     form: process.env.EMAIL,
                     to: `${email}`,
                     subject: `Email Verification`,
-                    text: ` Click the link to verify your identity/Email. https://authsystem-h113.onrender.com:${process.env.PORT}/verify/${jwtTokenCode} . the link expires in 10 minutes.`
+                    text: ` Click the link to verify your identity/Email. https://authsystem-dcod.onrender.com:${process.env.PORT}/verify/${jwtTokenCode} . the link expires in 10 minutes.`
                 }
 
                 myDetails.sendMail(allDetails, (error, info) => {

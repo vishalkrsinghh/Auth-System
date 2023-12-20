@@ -24,8 +24,8 @@ export default async function(req,res){
 
                 //// send pop up message password updates succesfully.
                 req.flash('success', 'Password changed successfully!')
-                res.redirect("https://authsystem-h113.onrender.com/");
-                // res.send(`Password Updated successfully. Go and Login Yourself, <a href="https://authsystem-h113.onrender.com/">LINK</a>`);
+                res.redirect("https://authsystem-dcod.onrender.com/");
+                // res.send(`Password Updated successfully. Go and Login Yourself, <a href="https://authsystem-dcod.onrender.com/">LINK</a>`);
                 // res.redirect("/");
             }else{
                 req.flash('error', 'invalid User.')

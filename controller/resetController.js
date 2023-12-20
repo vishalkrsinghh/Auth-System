@@ -23,7 +23,7 @@ export default async function (req, res) {
                 form: process.env.EMAIL,
                 to: `${isUser.email}`,
                 subject: `Password Reset`,
-                text: ` Click the link to Reset your Password. https://authsystem-h113.onrender.com:${process.env.PORT}/resetpassword/${jwtTokenCode} . the link expires in 15 minutes.`
+                text: ` Click the link to Reset your Password. https://authsystem-dcod.onrender.com:${process.env.PORT}/resetpassword/${jwtTokenCode} . the link expires in 15 minutes.`
             }
 
             myDetails.sendMail(allDetails, (error, info) => {
