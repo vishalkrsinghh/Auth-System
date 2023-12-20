@@ -9,7 +9,9 @@ export default async function(req,res){
 
         let {newpassword,cnfnewpassword,submit}= req.body;
         if(newpassword!=cnfnewpassword){
-            res.send("Password and confirm password is not same");
+            req.flash('error', 'Password and Confirm password is not same.')
+            res.redirect("back")
+            // res.send("Password and confirm password is not same");
         }else{
             let user=await userCollection.findOne({_id:submit})
             if(user){
@@ -21,10 +23,14 @@ export default async function(req,res){
                 await userCollection.findByIdAndUpdate(user._id,{password:hashPassword});
 
                 //// send pop up message password updates succesfully.
-                res.send(`Password Updated successfully. Go and Login Yourself, <a href="https://authsystem-h113.onrender.com/">LINK</a>`);
+                req.flash('success', 'Password changed successfully!')
+                res.redirect("https://authsystem-h113.onrender.com/");
+                // res.send(`Password Updated successfully. Go and Login Yourself, <a href="https://authsystem-h113.onrender.com/">LINK</a>`);
                 // res.redirect("/");
             }else{
-                res.send("Invalid user id/invalid User.")
+                req.flash('error', 'invalid User.')
+                res.redirect("back"); 
+                // res.send("Invalid user id/invalid User.")
             }
         }
         

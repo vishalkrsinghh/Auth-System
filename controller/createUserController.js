@@ -12,13 +12,18 @@ export default async function(req,res){
     // console.log(tokenDetail.name);
     if(tokenDetail){
         await userCollectionSchema.create({name:tokenDetail.name,email:tokenDetail.email,password:tokenDetail.paswd})
-        res.send(`Email verified Successfully, Go To <a href="https://authsystem-h113.onrender.com/">LINK</a>  for Login. `,tokenDetail,tokenDetail.name);
+
+        req.flash('success', 'Email verified Successfully!')
+        res.redirect("https://authsystem-h113.onrender.com/")
+        // res.send(`Email verified Successfully, Go To <a href="https://authsystem-h113.onrender.com/">LINK</a>  for Login. `);
 
     }else{
     
-        res.status(200).json({
-            message:"Invalid URL/Link."
-        })
+        req.flash('error', 'Invalid URL/Link.')
+        res.redirect("https://authsystem-h113.onrender.com/")
+        // res.status(200).json({
+        //     message:"Invalid URL/Link."
+        // })
     }
     /// create user here;
     // decode jwt token and get from that name, email password.

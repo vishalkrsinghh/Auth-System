@@ -2,5 +2,6 @@
 
 export default function(req,res){
     res.cookie("token","");
-    return res.redirect("/");
+    req.flash('success', 'Loged out Successfully!')
+    return res.redirect("/"); 
 }

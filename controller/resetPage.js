@@ -14,7 +14,9 @@ export default async (req, res) => {
         if (isUser) {
             res.render("resetPage", {id:isUser._id});
         } else {
-            return res.render("loginRegister");
+            req.flash('error', 'invalid User.')
+            return res.reditect("/");  //  //  give here full address of render. if error comes. or try to give redirect back
+            // return res.render("loginRegister");   ///// look at here if error
         }
 
     } catch (error) {

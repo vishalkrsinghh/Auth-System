@@ -35,7 +35,9 @@ export default async function (req, res) {
                 }
             })
             ///// create a pop up message and send it to back page.
-            res.send("Password Reset link send to your registerd Email id.")
+            req.flash('success', 'Password Reset link send to your registerd Email id.')
+            res.redirect("back");  //// if error try to give full url of render / page
+            // res.send("Password Reset link send to your registerd Email id.")
         }
         /// if wrong token or token is present but empty then else block will run.
         else {

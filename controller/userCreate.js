@@ -12,9 +12,11 @@ export default async function (req, res) {
         email = email.toLowerCase();
         let isUser = await userCollectionSchema.findOne({ email })
         if (isUser) {
-            return res.status(200).json({
-                message: "Email already exist"
-            })
+            req.flash('success', 'Email already exist.')
+            return res.redirect("/");  //// if error try to give full url of render.
+            // return res.status(200).json({
+            //     message: "Email already exist"
+            // })
         }
         else {
             // create a jwt token by using email id, encrypted password and name all of them
@@ -42,12 +44,17 @@ export default async function (req, res) {
                         console.log("mail Sent " + " " + info.response + " " + allDetails.messageId);
                     }
                 })
-                res.send(`Go To Your Mail Account And Verify Yourself`);
+
+                req.flash('success', 'Go To Your Mail Account And Verify Yourself.')
+                res.redirect("back");
+                // res.send(`Go To Your Mail Account And Verify Yourself`);
             } else {
-                res.status(400).json({
-                    Error: "Password and Confirm password are not equal.",
-                    data: {}
-                })
+                req.flash('error', 'Password and Confirm password are not equal.')
+                res.redirect("back");
+                // res.status(400).json({
+                //     Error: "Password and Confirm password are not equal.",
+                //     data: {}
+                // })
             }
         }
     } catch (error) {

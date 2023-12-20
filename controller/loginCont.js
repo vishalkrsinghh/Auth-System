@@ -19,26 +19,30 @@ export default async function (req, res) {
 
                 let token = jwt.sign({_id:user._id}, process.env.JWT_SECRET_KEY, { expiresIn: "60m" })
                 res.cookie('token', token, { maxAge: 60 * 60 * 1000, httpOnly: true }); 
-                req.flash('success', 'Loged in success!')
+                req.flash('success', 'Loged in Successfully!')
                 // res.render("home",{name:user.name,email:user.email});
                 res.redirect("/");
             }else{
-                res.status(400).json({
-                    Error: "Email or Password are incorrect.",
-                    data: {}
-                })
+                req.flash('error', 'Email or Password are incorrect.')
+                res.redirect("/")
+                // res.status(400).json({
+                //     Error: "Email or Password are incorrect.",
+                //     data: {}
+                // })
             }
 
         } else {
-            res.status(400).json({
-                Error: "Account doesn't exist .",
-                data: {}
-            })
+            req.flash('error', "Account doesn't exist.")
+            res.redirect("/")
+            // res.status(400).json({
+            //     Error: "Account doesn't exist .",
+            //     data: {}
+            // })
         }
         // console.log(req.cookies);
 
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         res.status(500).json({
             Error: "Error in login, Error in Code, Server Side Error .",
             data: { error }
