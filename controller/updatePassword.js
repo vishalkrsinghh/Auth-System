@@ -22,7 +22,6 @@ export default async function(req,res){
                 //await userCollection.findByIdAndUpdate({_id:user._id},{password:hashPassword});
                 await userCollection.findByIdAndUpdate(user._id,{password:hashPassword});
 
-                //// send pop up message password updates succesfully.
                 req.flash('success', 'Password changed successfully!')
                 res.redirect("https://authsystem-dcod.onrender.com/");
                 // res.send(`Password Updated successfully. Go and Login Yourself, <a href="https://authsystem-dcod.onrender.com/">LINK</a>`);

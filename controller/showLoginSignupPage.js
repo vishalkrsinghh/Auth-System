@@ -27,7 +27,6 @@ export default async (req,res)=>{   ///// default export
         res.render("loginRegister");
     }
 
-    // res.render("loginRegister");
 }
 
 // export {showRegisterPage}  ////// named export

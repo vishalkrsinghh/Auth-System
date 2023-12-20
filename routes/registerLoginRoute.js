@@ -17,7 +17,7 @@ router.use("/create", create);
 router.get("/logout", auth, logoutUser);
 router.use("/login", login);
 router.get("/verify/:Jwt", createUser);
-router.get("/resetpassword/:JwtToken",auth, resetPswd);////// remove auth if not needed.
+router.get("/resetpassword/:JwtToken", resetPswd);
 router.use("/password", auth, reset);
 export default router;
 

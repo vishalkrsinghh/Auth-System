@@ -15,14 +15,15 @@ export default async (req, res) => {
             res.render("resetPage", {id:isUser._id});
         } else {
             req.flash('error', 'invalid User.')
-            return res.reditect("/");  //  //  give here full address of render. if error comes. or try to give redirect back
+            return res.reditect("/");  
             // return res.render("loginRegister");   ///// look at here if error
         }
 
     } catch (error) {
-        console.log(error);
-        // popup message and back to previous page 
-        res.send("Provide a valid URL.")
+        // console.log(error);
+        req.flash('error', 'Provide a valid URL.')
+        return res.reditect("back");  
+        // res.send("Provide a valid URL.")
         // res.status(500).json({
         //     Error: "Error In resetPage, Server Side Error .",
         //     data: { error }

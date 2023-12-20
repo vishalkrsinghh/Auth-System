@@ -13,7 +13,7 @@ export default async function (req, res) {
         let isUser = await userCollectionSchema.findOne({ email })
         if (isUser) {
             req.flash('success', 'Email already exist.')
-            return res.redirect("/");  //// if error try to give full url of render.
+            return res.redirect("/");  
             // return res.status(200).json({
             //     message: "Email already exist"
             // })
